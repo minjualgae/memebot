@@ -1,5 +1,6 @@
 # Base for discord.py
 import discord
+from discord.ext import commands
 
 # Database
 import pymongo
