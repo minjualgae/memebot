@@ -10,5 +10,4 @@ async def meme(ctx, img, *, name):
     cv2.putText(image, name,(10,500 offset), font, 1,(0,0,0),2)
     await channel.send(file=discord.File(image))
 
-
 client.run(token)
