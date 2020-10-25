@@ -6,4 +6,6 @@ Discord meme generator bot
 if '.png' in imageurl or '.gif' in imageurl or '.jpg' in imageurl or '.jpeg' in imageurl:
 ```
 
-![](https://media.discordapp.net/attachments/769673291345952818/769848894871437332/unknown.png?width=438&height=308)
+<p align="center">
+  <img src="https://media.discordapp.net/attachments/769673291345952818/769848894871437332/unknown.png?width=438&height=308" />
+</p>
