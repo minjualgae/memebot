@@ -8,6 +8,7 @@ from pymongo import MongoClient
 
 # We might need these
 import requests
+import re
 import random
 import time
 import os
@@ -79,7 +80,8 @@ async def meme(ctx, *args):
 
 @client.command()
 async def pmeme(ctx, arg):
-    arg = round(float(arg))
+    toDigit = re.findall(r'\d+', arg)
+    arg = round(float(toDigit[0]))
     if arg > 10:
         arg = 10
     i = 0
