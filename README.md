@@ -1,5 +1,5 @@
 # UB Hacking 2020 - Team dkdlwmdnjs_alswn
-Discord meme generator bot
+Discord meme generator bot because our old project was too hard.
 
 # BeST FrEshmaN mEMe
 ```python
