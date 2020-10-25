@@ -80,8 +80,8 @@ async def meme(ctx, *args):
 
 @client.command()
 async def pmeme(ctx, arg):
-    toDigit = re.findall(r'\d+', arg)
-    arg = round(float(toDigit[0]))
+    arg = arg.replace('#', '').replace("\"", '').replace('\'', '')
+    arg = abs(math.ceil(float(arg)))
     if arg > 10:
         arg = 10
     i = 0
