@@ -80,6 +80,8 @@ async def meme(ctx, *args):
 @client.command()
 async def pmeme(ctx, arg):
     arg = round(float(arg))
+    if arg > 10:
+        arg = 10
     i = 0
     while i < arg:
         redditMemeJSONReseponse = requests.get(
