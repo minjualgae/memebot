@@ -76,25 +76,30 @@ async def meme(ctx, *args):
 			pass
 	elif m == ''
 
+
 @client.command()
-async def pmeme(ctx):
-    redditMemeJSONReseponse = requests.get(
-        url='https://www.reddit.com/r/programmerhumor/new.json', 
-        headers={'user-agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari'}
-        )
+async def pmeme(ctx, arg):
+    arg = round(float(arg))
+    i = 0
+    while i < arg:
+        redditMemeJSONReseponse = requests.get(
+            url='https://www.reddit.com/r/programmerhumor/new.json', 
+            headers={'user-agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari'}
+            )
 
-    memeResponseData = [ ]
+        memeResponseData = [ ]
 
-    for post in redditMemeJSONReseponse.json()['data']['children']:
-        author = post['data']['author']
-        title = post['data']['title']
-        imageurl = post['data']['url']
-        if '.png' in imageurl or '.gif' in imageurl or '.jpg' in imageurl or '.jpeg' in imageurl:
-            memeResponseData.append([author, title, imageurl])
+        for post in redditMemeJSONReseponse.json()['data']['children']:
+            author = post['data']['author']
+            title = post['data']['title']
+            imageurl = post['data']['url']
+            if '.png' in imageurl or '.gif' in imageurl or '.jpg' in imageurl or '.jpeg' in imageurl:
+                memeResponseData.append([author, title, imageurl])
 
-    randomMeme = random.choice(memeResponseData)
+        randomMeme = random.choice(memeResponseData)
 
-    embed=discord.Embed(title=randomMeme[1], description=f'u/{randomMeme[0]}', color=0x0C0CCC).set_image(url=randomMeme[2])
-    await ctx.channel.send(embed=embed)
+        embed=discord.Embed(title=randomMeme[1], description=f'u/{randomMeme[0]}', color=0x0C0CCC).set_image(url=randomMeme[2])
+        await ctx.channel.send(embed=embed)
+        i = i + 1
 
 client.run(token)
