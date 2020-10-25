@@ -6,6 +6,7 @@ import pymongo
 from pymongo import MongoClient
 
 # We might need these
+import requests
 import random
 import time
 import os
