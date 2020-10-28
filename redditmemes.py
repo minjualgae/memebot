@@ -34,8 +34,6 @@ async def pmeme(ctx):
 
 @client.command()
 async def meme(ctx, subreddit):
-    if (subreddit == None):
-        subreddit = 'programmerhumor'
     redditMemeJSONReseponse = requests.get(
         url=f'https://www.reddit.com/r/{subreddit}/new.json', 
         headers={'user-agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari'}
